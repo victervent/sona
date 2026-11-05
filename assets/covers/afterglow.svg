@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#080c24"/>
+      <stop offset="0.42" stop-color="#182451"/>
+      <stop offset="0.64" stop-color="#784b78"/>
+      <stop offset="0.8" stop-color="#d47c75"/>
+      <stop offset="1" stop-color="#17101d"/>
+    </linearGradient>
+    <linearGradient id="sun" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffe9ad"/>
+      <stop offset="0.45" stop-color="#ffb37e"/>
+      <stop offset="1" stop-color="#f2687e"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#291d3e"/>
+      <stop offset="0.4" stop-color="#12172d"/>
+      <stop offset="1" stop-color="#070a13"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="38"/></filter>
+    <filter id="glow2"><feGaussianBlur stdDeviation="9"/></filter>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="table" tableValues="0 0.12"/></feComponentTransfer>
+    </filter>
+    <pattern id="lines" width="1" height="18" patternUnits="userSpaceOnUse">
+      <rect width="1" height="10" fill="#0b0d1a"/>
+    </pattern>
+    <mask id="sunmask">
+      <circle cx="500" cy="500" r="216" fill="#fff"/>
+      <rect x="250" y="515" width="500" height="260" fill="url(#lines)"/>
+    </mask>
+  </defs>
+  <rect width="1000" height="1000" fill="url(#sky)"/>
+  <g fill="#fff7e6" opacity="0.72">
+    <circle cx="128" cy="168" r="1.8"/><circle cx="260" cy="102" r="1.2"/><circle cx="782" cy="142" r="2"/>
+    <circle cx="874" cy="286" r="1.4"/><circle cx="670" cy="82" r="1.1"/><circle cx="392" cy="192" r="1.3"/>
+    <circle cx="70" cy="362" r="1"/><circle cx="922" cy="414" r="1.2"/><circle cx="544" cy="120" r="1.6"/>
+  </g>
+  <circle cx="500" cy="505" r="290" fill="#f28a82" opacity="0.3" filter="url(#glow)"/>
+  <g mask="url(#sunmask)">
+    <circle cx="500" cy="500" r="216" fill="url(#sun)"/>
+    <circle cx="500" cy="500" r="216" fill="none" stroke="#ffe8be" stroke-width="1.4" opacity="0.4"/>
+  </g>
+  <rect y="695" width="1000" height="305" fill="url(#water)"/>
+  <path d="M0 696 C120 676 210 714 330 696 S570 680 680 698 S880 714 1000 692 V720 H0Z" fill="#101326" opacity="0.9"/>
+  <g opacity="0.55" filter="url(#glow2)">
+    <rect x="472" y="726" width="56" height="2" fill="#ffb988"/>
+    <rect x="452" y="756" width="96" height="2" fill="#ef957e" opacity="0.8"/>
+    <rect x="420" y="794" width="160" height="3" fill="#c87880" opacity="0.55"/>
+    <rect x="382" y="840" width="236" height="3" fill="#9d6577" opacity="0.35"/>
+    <rect x="450" y="886" width="100" height="2" fill="#d7978d" opacity="0.25"/>
+  </g>
+  <g stroke="#f6d7c9" fill="none" opacity="0.2">
+    <path d="M80 754 C180 748 220 760 310 752"/>
+    <path d="M710 778 C790 770 852 784 928 776"/>
+    <path d="M190 844 C290 838 352 850 458 844"/>
+    <path d="M560 914 C652 906 748 920 832 910"/>
+  </g>
+  <rect width="1000" height="1000" filter="url(#grain)"/>
+  <g fill="#fbe8d8" font-family="'Segoe UI', Arial, sans-serif">
+    <text x="64" y="84" font-size="15" letter-spacing="7" opacity="0.74">MIRA SOL</text>
+    <text x="936" y="84" text-anchor="end" font-size="11" letter-spacing="4" opacity="0.5">NIGHT TAPES 002</text>
+    <text x="64" y="930" font-size="75" font-weight="300" letter-spacing="1">AFTERGLOW</text>
+    <text x="66" y="970" font-size="12" letter-spacing="9" opacity="0.55">A STUDY IN SLOW LIGHT</text>
+  </g>
+</svg>

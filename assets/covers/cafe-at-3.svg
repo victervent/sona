@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#091321"/>
+      <stop offset="0.5" stop-color="#122438"/>
+      <stop offset="1" stop-color="#060c14"/>
+    </linearGradient>
+    <linearGradient id="window" x1="0" y1="0" x2="0.5" y2="1">
+      <stop offset="0" stop-color="#f7c56d"/>
+      <stop offset="0.35" stop-color="#e9955f"/>
+      <stop offset="1" stop-color="#653d44"/>
+    </linearGradient>
+    <linearGradient id="cup" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0dfc4"/>
+      <stop offset="1" stop-color="#9b8469"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="60"/></filter>
+    <filter id="blur2"><feGaussianBlur stdDeviation="1.8"/></filter>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="4" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="table" tableValues="0 0.16"/></feComponentTransfer>
+    </filter>
+    <clipPath id="pane"><rect x="185" y="176" width="630" height="470" rx="5"/></clipPath>
+    <pattern id="rain" width="80" height="130" patternUnits="userSpaceOnUse" patternTransform="rotate(12)">
+      <path d="M12 0 C7 30 15 60 9 100" fill="none" stroke="#d8ecf7" stroke-opacity="0.27" stroke-width="1.2"/>
+      <path d="M55 20 C49 48 60 78 54 120" fill="none" stroke="#cae4f3" stroke-opacity="0.2" stroke-width="0.8"/>
+    </pattern>
+  </defs>
+  <rect width="1000" height="1000" fill="url(#bg)"/>
+  <rect x="150" y="140" width="700" height="540" rx="12" fill="#0b1421" opacity="0.6"/>
+  <g clip-path="url(#pane)">
+    <rect x="185" y="176" width="630" height="470" fill="url(#window)"/>
+    <circle cx="710" cy="320" r="120" fill="#ffdf94" opacity="0.4" filter="url(#glow)"/>
+    <path d="M185 500 C290 460 360 530 450 490 C560 440 650 512 815 442 V646 H185Z" fill="#1c2534" opacity="0.4"/>
+    <g fill="#17161d" opacity="0.7">
+      <rect x="245" y="360" width="8" height="286"/><rect x="245" y="362" width="115" height="5"/>
+      <rect x="320" y="408" width="5" height="238"/>
+      <circle cx="330" cy="397" r="22"/><circle cx="390" cy="390" r="16"/>
+    </g>
+    <g stroke="#ffe3a3" opacity="0.55" stroke-width="1.5" fill="none">
+      <circle cx="704" cy="330" r="78"/><circle cx="704" cy="330" r="94"/>
+    </g>
+    <rect width="630" height="470" fill="url(#rain)"/>
+  </g>
+  <g opacity="0.75">
+    <rect x="165" y="636" width="670" height="14" fill="#1c2a38" rx="2"/>
+    <rect x="180" y="650" width="640" height="6" fill="#0b1119"/>
+  </g>
+  <g opacity="0.3" filter="url(#blur2)">
+    <ellipse cx="535" cy="820" rx="230" ry="24" fill="#02050a"/>
+  </g>
+  <g transform="translate(512 746)">
+    <ellipse cx="0" cy="54" rx="147" ry="20" fill="#02060a" opacity="0.45"/>
+    <path d="M-110 -78 H94 L80 46 C76 69 55 82 32 82 H-46 C-70 82 -90 68 -94 46Z" fill="url(#cup)"/>
+    <ellipse cx="0" cy="-78" rx="102" ry="25" fill="#3b241c"/>
+    <ellipse cx="0" cy="-80" rx="87" ry="18" fill="#6a4030"/>
+    <path d="M94 -52 C174 -56 174 38 78 34" fill="none" stroke="#c9b394" stroke-width="15" stroke-linecap="round"/>
+    <path d="M-52 -110 C-38 -154 -62 -168 -44 -206 M2 -104 C18 -144 -4 -164 11 -196 M54 -112 C68 -152 48 -168 65 -202" fill="none" stroke="#d9e4e1" stroke-opacity="0.36" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <path d="M64 690 C240 672 380 710 540 684 S810 656 936 688" fill="none" stroke="#f4b16e" stroke-opacity="0.15" stroke-width="1"/>
+  <rect width="1000" height="1000" filter="url(#grain)" opacity="0.75"/>
+  <g fill="#f1e5d3" font-family="'Segoe UI', Arial, sans-serif">
+    <text x="62" y="84" font-size="15" letter-spacing="7" opacity="0.7">THE PAPER CLUB</text>
+    <text x="62" y="892" font-size="62" font-weight="500" letter-spacing="1">CAFÉ</text>
+    <text x="62" y="954" font-size="62" font-weight="300" letter-spacing="8">AT 3 AM</text>
+    <text x="936" y="954" text-anchor="end" font-size="10" letter-spacing="4" opacity="0.46">RAINY WINDOW TAPES</text>
+  </g>
+  <g fill="#f4c979" opacity="0.6">
+    <circle cx="255" cy="858" r="2"/><circle cx="270" cy="858" r="1"/><circle cx="784" cy="808" r="1.4"/>
+  </g>
+</svg>

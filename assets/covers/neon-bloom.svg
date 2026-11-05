@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.7" y2="1">
+      <stop offset="0" stop-color="#130f2c"/>
+      <stop offset="0.52" stop-color="#1a113d"/>
+      <stop offset="1" stop-color="#080711"/>
+    </linearGradient>
+    <linearGradient id="petal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff9bca"/>
+      <stop offset="0.45" stop-color="#ff4f8b"/>
+      <stop offset="1" stop-color="#ff9b58"/>
+    </linearGradient>
+    <linearGradient id="petal2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffd36b"/>
+      <stop offset="1" stop-color="#fa577c" stop-opacity="0.25"/>
+    </linearGradient>
+    <radialGradient id="core" cx="0.36" cy="0.32" r="0.7">
+      <stop offset="0" stop-color="#fff6d8"/>
+      <stop offset="0.2" stop-color="#ffd370"/>
+      <stop offset="0.58" stop-color="#ff5d8a"/>
+      <stop offset="1" stop-color="#7324b8"/>
+    </radialGradient>
+    <radialGradient id="aura">
+      <stop offset="0" stop-color="#ff4f8b" stop-opacity="0.7"/>
+      <stop offset="0.55" stop-color="#7e41ff" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#29045c" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur70"><feGaussianBlur stdDeviation="70"/></filter>
+    <filter id="blur18"><feGaussianBlur stdDeviation="18"/></filter>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="table" tableValues="0 0.16"/></feComponentTransfer>
+    </filter>
+    <pattern id="scan" width="8" height="8" patternUnits="userSpaceOnUse">
+      <path d="M0 4h8" stroke="#000" stroke-opacity="0.18" stroke-width="1.2"/>
+    </pattern>
+  </defs>
+  <rect width="1000" height="1000" fill="url(#bg)"/>
+  <circle cx="500" cy="455" r="360" fill="url(#aura)"/>
+  <circle cx="770" cy="180" r="240" fill="#3a1a78" opacity="0.32" filter="url(#blur70)"/>
+  <circle cx="220" cy="730" r="240" fill="#b91871" opacity="0.22" filter="url(#blur70)"/>
+  <g transform="translate(500 455)" filter="url(#blur18)" opacity="0.8">
+    <g>
+      <ellipse cx="0" cy="-168" rx="74" ry="210" fill="url(#petal2)" transform="rotate(0)"/>
+      <ellipse cx="0" cy="-168" rx="74" ry="210" fill="url(#petal)" transform="rotate(45)"/>
+      <ellipse cx="0" cy="-168" rx="74" ry="210" fill="url(#petal2)" transform="rotate(90)"/>
+      <ellipse cx="0" cy="-168" rx="74" ry="210" fill="url(#petal)" transform="rotate(135)"/>
+      <ellipse cx="0" cy="-168" rx="74" ry="210" fill="url(#petal2)" transform="rotate(180)"/>
+      <ellipse cx="0" cy="-168" rx="74" ry="210" fill="url(#petal)" transform="rotate(225)"/>
+      <ellipse cx="0" cy="-168" rx="74" ry="210" fill="url(#petal2)" transform="rotate(270)"/>
+      <ellipse cx="0" cy="-168" rx="74" ry="210" fill="url(#petal)" transform="rotate(315)"/>
+    </g>
+  </g>
+  <g transform="translate(500 455)">
+    <g fill="none">
+      <ellipse cx="0" cy="-164" rx="68" ry="197" stroke="url(#petal2)" stroke-width="2" transform="rotate(0)"/>
+      <ellipse cx="0" cy="-164" rx="68" ry="197" stroke="url(#petal)" stroke-width="1.4" transform="rotate(45)"/>
+      <ellipse cx="0" cy="-164" rx="68" ry="197" stroke="url(#petal2)" stroke-width="2" transform="rotate(90)"/>
+      <ellipse cx="0" cy="-164" rx="68" ry="197" stroke="url(#petal)" stroke-width="1.4" transform="rotate(135)"/>
+      <ellipse cx="0" cy="-164" rx="68" ry="197" stroke="url(#petal2)" stroke-width="2" transform="rotate(180)"/>
+      <ellipse cx="0" cy="-164" rx="68" ry="197" stroke="url(#petal)" stroke-width="1.4" transform="rotate(225)"/>
+      <ellipse cx="0" cy="-164" rx="68" ry="197" stroke="url(#petal2)" stroke-width="2" transform="rotate(270)"/>
+      <ellipse cx="0" cy="-164" rx="68" ry="197" stroke="url(#petal)" stroke-width="1.4" transform="rotate(315)"/>
+    </g>
+    <circle r="134" fill="url(#core)"/>
+    <circle r="134" fill="none" stroke="#ffe8b3" stroke-opacity="0.42" stroke-width="1.5"/>
+    <circle r="98" fill="none" stroke="#4d0a35" stroke-opacity="0.35" stroke-width="1"/>
+    <circle r="68" fill="none" stroke="#4d0a35" stroke-opacity="0.25" stroke-width="1"/>
+    <circle r="158" fill="none" stroke="#ffc0d8" stroke-opacity="0.2" stroke-width="1"/>
+  </g>
+  <g opacity="0.5" fill="#ffd2e3">
+    <circle cx="158" cy="220" r="3"/><circle cx="870" cy="346" r="2"/><circle cx="772" cy="756" r="3"/>
+    <circle cx="298" cy="840" r="2"/><circle cx="647" cy="140" r="2"/><circle cx="108" cy="580" r="2"/>
+  </g>
+  <rect width="1000" height="1000" fill="url(#scan)" opacity="0.5"/>
+  <rect width="1000" height="1000" filter="url(#grain)" opacity="0.55"/>
+  <g fill="#ffe3ec" font-family="'Segoe UI', Arial, sans-serif">
+    <text x="64" y="82" font-size="17" letter-spacing="7" opacity="0.72">ASTER VALE</text>
+    <text x="64" y="916" font-size="68" font-weight="700" letter-spacing="1">NEON</text>
+    <text x="64" y="972" font-size="17" letter-spacing="12" opacity="0.62">BLOOM / 01</text>
+    <text x="936" y="82" text-anchor="end" font-size="14" letter-spacing="5" opacity="0.55">SONORA EDITIONS</text>
+  </g>
+</svg>

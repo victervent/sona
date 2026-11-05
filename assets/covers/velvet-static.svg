@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#f6b49d"/>
+      <stop offset="0.38" stop-color="#ef8b86"/>
+      <stop offset="0.72" stop-color="#9c4b65"/>
+      <stop offset="1" stop-color="#301d2c"/>
+    </linearGradient>
+    <linearGradient id="ink" x1="0" y1="0" x2="1" y2="0.7">
+      <stop offset="0" stop-color="#1c1520"/>
+      <stop offset="0.5" stop-color="#4d253b"/>
+      <stop offset="1" stop-color="#120e15"/>
+    </linearGradient>
+    <linearGradient id="chrome" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffe8dd" stop-opacity="0.9"/>
+      <stop offset="0.28" stop-color="#f4a6a2" stop-opacity="0.4"/>
+      <stop offset="0.55" stop-color="#fff5e8" stop-opacity="0.85"/>
+      <stop offset="0.78" stop-color="#5b324a" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#1c1320" stop-opacity="0.9"/>
+    </linearGradient>
+    <filter id="blur90"><feGaussianBlur stdDeviation="90"/></filter>
+    <filter id="blur8"><feGaussianBlur stdDeviation="8"/></filter>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.74" numOctaves="4" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="table" tableValues="0 0.2"/></feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="1000" height="1000" fill="url(#bg)"/>
+  <circle cx="810" cy="245" r="250" fill="#ffd9c9" opacity="0.38" filter="url(#blur90)"/>
+  <circle cx="190" cy="800" r="290" fill="#33162c" opacity="0.42" filter="url(#blur90)"/>
+  <g filter="url(#blur8)">
+    <circle cx="514" cy="470" r="330" fill="url(#ink)"/>
+    <circle cx="514" cy="470" r="315" fill="none" stroke="#ffd8c8" stroke-opacity="0.18" stroke-width="1.5"/>
+    <circle cx="514" cy="470" r="280" fill="none" stroke="#ffd8c8" stroke-opacity="0.13" stroke-width="1"/>
+    <circle cx="514" cy="470" r="242" fill="none" stroke="#ffd8c8" stroke-opacity="0.1" stroke-width="1"/>
+    <circle cx="514" cy="470" r="198" fill="none" stroke="#ffd8c8" stroke-opacity="0.08" stroke-width="1"/>
+    <circle cx="514" cy="470" r="150" fill="none" stroke="#ffd8c8" stroke-opacity="0.06" stroke-width="1"/>
+    <circle cx="600" cy="490" r="91" fill="url(#chrome)"/>
+    <circle cx="600" cy="490" r="27" fill="#22161f"/>
+    <circle cx="600" cy="490" r="8" fill="#f6d9ca"/>
+  </g>
+  <path d="M-60 720 C 180 570, 350 890, 590 700 S 910 520, 1090 670" fill="none" stroke="url(#chrome)" stroke-width="1.2" opacity="0.6"/>
+  <path d="M-60 758 C 200 610, 390 920, 620 738 S 920 570, 1090 710" fill="none" stroke="#fbe5d6" stroke-width="0.8" opacity="0.25"/>
+  <g fill="url(#chrome)" opacity="0.8">
+    <path d="M0 0 H250 C180 180 115 280 0 330Z" opacity="0.2"/>
+    <path d="M1000 1000 H720 C820 840 900 760 1000 730Z" opacity="0.14"/>
+  </g>
+  <rect width="1000" height="1000" filter="url(#grain)" opacity="0.7"/>
+  <g fill="#241720" font-family="'Segoe UI', Arial, sans-serif">
+    <text x="64" y="84" font-size="16" letter-spacing="7">LUNE</text>
+    <text x="64" y="132" font-size="11" letter-spacing="4" opacity="0.6">SOFT FOCUS / SIDE A</text>
+    <text x="64" y="918" font-size="72" font-weight="700" letter-spacing="-1">VELVET</text>
+    <text x="64" y="974" font-size="18" letter-spacing="13" opacity="0.7">STATIC</text>
+    <text x="936" y="930" text-anchor="end" font-size="12" letter-spacing="4" opacity="0.62">33⅓ RPM</text>
+  </g>
+  <g stroke="#291923" stroke-width="1" opacity="0.5">
+    <path d="M64 160 h180"/><path d="M756 160 h180"/>
+  </g>
+</svg>
