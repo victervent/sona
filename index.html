@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#08070c">
+  <meta name="description" content="SONORA — vũ trụ âm nhạc cá nhân của bạn. Thêm link YouTube, Spotify, MP3, SoundCloud, Suno; nghe nhạc, xem lời đồng bộ và biến mỗi bài hát thành một cảnh phim.">
+  <title>SONORA — vũ trụ âm nhạc của bạn</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%23ff6b9a'/%3E%3Cstop offset='.55' stop-color='%239d7bff'/%3E%3Cstop offset='1' stop-color='%235ee8c1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='17' fill='%230a0910'/%3E%3Ccircle cx='32' cy='32' r='17' fill='none' stroke='url(%23g)' stroke-width='3'/%3E%3Ccircle cx='32' cy='32' r='5' fill='url(%23g)'/%3E%3Cpath d='M32 6v10M32 48v10M6 32h10M48 32h10' stroke='url(%23g)' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <svg width="0" height="0" class="svg-sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10.6 9-7.4 9 7.4V20a1.4 1.4 0 0 1-1.4 1.4h-4.8v-7.1H9.2v7.1H4.4A1.4 1.4 0 0 1 3 20Z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="10.8" cy="10.8" r="7.2"/><path d="m16.2 16.2 4.3 4.3"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.8 8.2-2.1 5.5-5.5 2.1 2.1-5.5Z"/></symbol>
+    <symbol id="i-library" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V6.5A1.5 1.5 0 0 1 5.5 5H8"/><path d="M9 20V4.8A1.3 1.3 0 0 1 10.3 3.5h1.4A1.3 1.3 0 0 1 13 4.8V20"/><path d="m15.5 5.2 3.8 14.2"/><path d="M4 20h16"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.7a5.4 5.4 0 0 0-7.7 0L12 5.8l-1.1-1.1a5.4 5.4 0 1 0-7.7 7.7L12 21l8.8-8.6a5.4 5.4 0 0 0 0-7.7Z"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M5 12h14"/></symbol>
+    <symbol id="i-music" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></symbol>
+    <symbol id="i-disc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.1"/><circle cx="12" cy="12" r="6.2" stroke-dasharray="1 2.6"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06-2.83 2.83-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 1.55V21h-4v-.09A1.7 1.7 0 0 0 9 19.4a1.7 1.7 0 0 0-1.87.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.55-1H3v-4h.09A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.34-1.87l-.06-.06L7.03 4.24l.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-1.55V3h4v.09A1.7 1.7 0 0 0 15 4.6a1.7 1.7 0 0 0 1.87-.34l.06-.06 2.83 2.83-.06.06A1.7 1.7 0 0 0 19.4 9a1.7 1.7 0 0 0 1.55 1H21v4h-.09A1.7 1.7 0 0 0 19.4 15Z"/></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7.5 4.8a1.2 1.2 0 0 1 1.8-1l10.2 6.3a1.2 1.2 0 0 1 0 2L9.3 18.4a1.2 1.2 0 0 1-1.8-1Z"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6.4" y="4" width="4.1" height="16" rx="1.4" fill="currentColor"/><rect x="13.5" y="4" width="4.1" height="16" rx="1.4" fill="currentColor"/></symbol>
+    <symbol id="i-next" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m5 6.5 8.5 5.5L5 17.5Z" fill="currentColor" stroke="none"/><path d="M19 5v14"/></symbol>
+    <symbol id="i-prev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M19 6.5 10.5 12 19 17.5Z" fill="currentColor" stroke="none"/><path d="M5 5v14"/></symbol>
+    <symbol id="i-shuffle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="m4 20 17-17"/><path d="M21 16v5h-5"/><path d="m15 15 6 6"/><path d="M4 4l5 5"/></symbol>
+    <symbol id="i-repeat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m17 2 4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15"/><path d="m7 22-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/></symbol>
+    <symbol id="i-volume" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6.5 9H3v6h3.5L11 19Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></symbol>
+    <symbol id="i-volume-low" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6.5 9H3v6h3.5L11 19Z"/><path d="M15 9.5a4 4 0 0 1 0 5"/></symbol>
+    <symbol id="i-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6.5 9H3v6h3.5L11 19Z"/><path d="m16 9 5 6M21 9l-5 6"/></symbol>
+    <symbol id="i-queue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h10M4 12h10M4 18h7"/><path d="M18 8v10"/><path d="m15 15 3 3 3-3"/></symbol>
+    <symbol id="i-lyrics" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14M5 9h10M5 13h14M5 17h8"/><path d="M18.5 19.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"/></symbol>
+    <symbol id="i-compress" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h5V3M21 8h-5V3M3 16h5v5M21 16h-5v5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></symbol>
+    <symbol id="i-more-v" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="12" cy="19" r="1.7"/></symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 0 0 0 18c1.4 0 2.2-.9 2.2-2 0-.8-.4-1.4-.9-2 0-.4-.3-.9-.3-1.4 0-1.1.9-2 2-2h1.7A4.3 4.3 0 0 0 21 9.3C20.4 5.7 16.7 3 12 3Z"/><circle cx="7.5" cy="10" r="1" fill="currentColor"/><circle cx="10" cy="6.7" r="1" fill="currentColor"/><circle cx="14.3" cy="6.8" r="1" fill="currentColor"/><circle cx="6.8" cy="14.2" r="1" fill="currentColor"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 13.6 9 19 10.6 13.6 12.2 12 17.7 10.4 12.2 5 10.6 10.4 9Z"/><path d="m19 16 .7 2.3L22 19l-2.3.7L19 22l-.7-2.3L16 19l2.3-.7Z"/><path d="m5 2 .5 1.5L7 4l-1.5.5L5 6l-.5-1.5L3 4l1.5-.5Z"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7-7l-1.1 1.1"/><path d="M14 11a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7 7l1.1-1.1"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V4h6v3M6 7l1 14h10l1-14M10 11v6M14 11v6"/></symbol>
+    <symbol id="i-grip" viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="6" r="1.3"/><circle cx="15" cy="6" r="1.3"/><circle cx="9" cy="12" r="1.3"/><circle cx="15" cy="12" r="1.3"/><circle cx="9" cy="18" r="1.3"/><circle cx="15" cy="18" r="1.3"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4 11 13"/><path d="M18 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></symbol>
+    <symbol id="i-folder-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M12 11v6M9 14h6"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M7 11l5 5 5-5"/><path d="M4 20h16"/></symbol>
+    <symbol id="i-keyboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M6 14h.01M18 14h.01M9 14h6"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 14.3A8.5 8.5 0 0 1 9.7 3.4a8.5 8.5 0 1 0 10.9 10.9Z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H6.8A4.3 4.3 0 0 1 6 10.6 6 6 0 0 1 17.4 9a5 5 0 0 1 .1 10Z"/></symbol>
+    <symbol id="i-rain" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 15H6.8A4.3 4.3 0 0 1 6 6.6 6 6 0 0 1 17.4 5a5 5 0 0 1 .1 10Z"/><path d="m8 18-1 3M12 18l-1 3M16 18l-1 3"/></symbol>
+    <symbol id="i-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 11 2-6h10l2 6"/><path d="M3 11h18v7H3z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/><path d="M6 14h2M16 14h2"/></symbol>
+    <symbol id="i-focus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></symbol>
+    <symbol id="i-wave" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 12h2l2-6 4 12 3-9 2 5 2-2h3"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-3v10l-5-3Z"/></symbol>
+    <symbol id="i-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.5 3.6 5.5 3.6 9S14.4 18.5 12 21c-2.4-2.5-3.6-5.5-3.6-9S9.6 5.5 12 3Z"/></symbol>
+    <symbol id="i-spotify" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M6.8 9.4c3.4-.9 7.3-.5 10.3 1.1M7.6 12.7c2.8-.7 6-.3 8.6 1M8.4 15.9c2.2-.5 4.7-.2 6.7.8"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 3 6 6-2 2 4 4-1 1-4-4-2 2-1-1-3 7-1-1 3-7-1-1 2-2Z"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></symbol>
+  </svg>
+
+  <div class="ambient-world" aria-hidden="true">
+    <div class="ambient-blob blob-a"></div>
+    <div class="ambient-blob blob-b"></div>
+    <div class="ambient-blob blob-c"></div>
+    <div class="ambient-grid"></div>
+    <div class="ambient-stars"></div>
+  </div>
+  <div class="film-grain" aria-hidden="true"></div>
+
+  <div class="app-shell" id="appShell" data-palette="auto">
+    <aside class="sidebar" id="sidebar" aria-label="Điều hướng chính">
+      <a href="#/home" class="brand" data-route="home" aria-label="SONORA — trang chủ">
+        <span class="brand-mark" aria-hidden="true">
+          <span class="brand-ring ring-one"></span>
+          <span class="brand-ring ring-two"></span>
+          <span class="brand-core"></span>
+          <span class="brand-satellite"></span>
+        </span>
+        <span class="brand-word">sonora<span>.</span></span>
+      </a>
+
+      <nav class="primary-nav" aria-label="Khám phá">
+        <a class="nav-item" href="#/home" data-route="home">
+          <span class="nav-icon"><svg class="icon"><use href="#i-home"></use></svg></span>
+          <span>Khám phá</span><span class="nav-key">H</span>
+        </a>
+        <a class="nav-item" href="#/search" data-route="search">
+          <span class="nav-icon"><svg class="icon"><use href="#i-search"></use></svg></span>
+          <span>Tìm kiếm</span><span class="nav-key">/</span>
+        </a>
+        <a class="nav-item" href="#/radio" data-route="radio">
+          <span class="nav-icon"><svg class="icon"><use href="#i-compass"></use></svg></span>
+          <span>La bàn cảm xúc</span>
+          <span class="nav-live">LIVE</span>
+        </a>
+        <a class="nav-item" href="#/library" data-route="library">
+          <span class="nav-icon"><svg class="icon"><use href="#i-library"></use></svg></span>
+          <span>Thư viện</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-section-head">
+        <span>Bộ sưu tập</span>
+        <button class="icon-btn icon-btn--small" id="createPlaylistBtn" data-action="createPlaylist" data-tooltip="Playlist mới" aria-label="Tạo playlist mới">
+          <svg class="icon"><use href="#i-plus"></use></svg>
+        </button>
+      </div>
+
+      <div class="library-shortcuts">
+        <a href="#/liked" class="library-shortcut" data-route="liked">
+          <span class="shortcut-icon liked-icon"><svg class="icon"><use href="#i-heart"></use></svg></span>
+          <span><strong>Bài hát đã thích</strong><small id="likedCount">0 bài hát</small></span>
+        </a>
+        <a href="#/library?tab=uploads" class="library-shortcut" data-route="library" data-tab="uploads">
+          <span class="shortcut-icon"><svg class="icon"><use href="#i-upload"></use></svg></span>
+          <span><strong>Tệp của tôi</strong><small>Thêm từ thiết bị</small></span>
+        </a>
+      </div>
+
+      <div class="sidebar-playlist-list" id="sidebarPlaylists" aria-label="Playlist của bạn"></div>
+
+      <div class="sidebar-footer">
+        <button class="add-link-cta" data-action="openAdd">
+          <span class="cta-icon"><svg class="icon"><use href="#i-link"></use></svg></span>
+          <span><strong>Thêm một liên kết</strong><small>YouTube, Spotify, MP3, Suno…</small></span>
+          <svg class="icon cta-arrow"><use href="#i-plus"></use></svg>
+        </button>
+        <button class="profile-card" data-action="openSettings">
+          <span class="profile-avatar">N<span class="profile-status"></span></span>
+          <span class="profile-text"><strong>Nguyên</strong><small>Listener · since 2026</small></span>
+          <svg class="icon"><use href="#i-settings"></use></svg>
+        </button>
+      </div>
+    </aside>
+    <button class="sidebar-scrim" id="sidebarScrim" data-action="closeSidebar" aria-label="Đóng thanh bên"></button>
+
+    <main class="main" id="main">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="icon-btn mobile-only" id="sidebarToggle" data-action="toggleSidebar" aria-label="Mở thanh bên">
+            <svg class="icon"><use href="#i-menu"></use></svg>
+          </button>
+          <div class="history-buttons">
+            <button class="icon-btn icon-btn--page" id="historyBack" data-action="goBack" aria-label="Quay lại"><svg class="icon"><use href="#i-chevron-left"></use></svg></button>
+            <button class="icon-btn icon-btn--page" id="historyForward" data-action="goForward" aria-label="Tiến tới"><svg class="icon"><use href="#i-chevron-right"></use></svg></button>
+          </div>
+          <button class="global-search" data-action="openSearch" aria-label="Mở tìm kiếm nhanh">
+            <svg class="icon"><use href="#i-search"></use></svg>
+            <span>Tìm bài hát, nghệ sĩ, playlist…</span>
+            <kbd>Ctrl K</kbd>
+          </button>
+        </div>
+        <div class="topbar-actions">
+          <button class="icon-btn spotify-quick" id="spotifyQuickBtn" data-action="openSpotifySettings" data-tooltip="Kết nối Spotify Full" aria-label="Kết nối Spotify Full">
+            <svg class="icon"><use href="#i-spotify"></use></svg>
+            <span class="spotify-quick-dot"></span>
+          </button>
+          <button class="icon-btn" data-action="cyclePalette" data-tooltip="Đổi bảng màu" aria-label="Đổi bảng màu">
+            <svg class="icon"><use href="#i-palette"></use></svg>
+          </button>
+          <button class="icon-btn sleep-button" id="sleepButton" data-action="openSleepTimer" data-tooltip="Hẹn giờ ngủ" aria-label="Hẹn giờ ngủ">
+            <svg class="icon"><use href="#i-clock"></use></svg>
+            <span class="sleep-countdown" id="sleepCountdown"></span>
+          </button>
+          <button class="icon-btn" data-action="openShortcuts" data-tooltip="Phím tắt" aria-label="Phím tắt">
+            <svg class="icon"><use href="#i-keyboard"></use></svg>
+          </button>
+          <button class="top-avatar" data-action="openSettings" aria-label="Mở hồ sơ">N</button>
+        </div>
+      </header>
+
+      <div class="view-container" id="view" tabindex="-1"></div>
+    </main>
+
+    <aside class="now-panel" id="nowPanel" aria-label="Đang phát">
+      <div class="now-panel-head">
+        <div class="now-head-label">
+          <span class="eyebrow"><span class="live-dot"></span>Đang phát</span>
+          <span class="now-context" id="nowContext">SONORA · Bản địa</span>
+        </div>
+        <div class="now-head-actions">
+          <button class="icon-btn icon-btn--small" data-action="openCinema" data-tooltip="Chế độ điện ảnh (C)" aria-label="Mở chế độ điện ảnh"><svg class="icon"><use href="#i-expand"></use></svg></button>
+          <button class="icon-btn icon-btn--small now-close" data-action="closeNowPanel" data-tooltip="Đóng bảng" aria-label="Đóng bảng đang phát"><svg class="icon"><use href="#i-chevron-right"></use></svg></button>
+        </div>
+      </div>
+
+      <div class="now-scroll" id="nowScroll">
+        <div class="now-stage" id="nowStage">
+          <span class="stage-ambient-glow"></span>
+          <canvas class="now-canvas" id="nowCanvas" aria-hidden="true"></canvas>
+          <div class="disc-scene" id="discScene">
+            <div class="tonearm" aria-hidden="true">
+              <span class="tonearm-base"></span>
+              <span class="tonearm-arm"></span>
+              <span class="tonearm-head"></span>
+            </div>
+            <div class="disc-plate">
+              <div class="vinyl-disc" id="vinylDisc">
+                <img id="nowCover" class="now-cover" alt="" draggable="false">
+                <span class="vinyl-grooves" aria-hidden="true"></span>
+                <span class="vinyl-glint" aria-hidden="true"></span>
+                <span class="vinyl-label" aria-hidden="true"><span>SONORA</span><small id="vinylYear">2026</small></span>
+              </div>
+            </div>
+            <button class="stage-play" id="stagePlayBtn" data-action="togglePlay" aria-label="Phát hoặc tạm dừng">
+              <svg class="icon icon-play"><use href="#i-play"></use></svg>
+              <svg class="icon icon-pause"><use href="#i-pause"></use></svg>
+            </button>
+            <span class="stage-orbit orbit-one" aria-hidden="true"></span>
+            <span class="stage-orbit orbit-two" aria-hidden="true"></span>
+          </div>
+          <div class="embed-wrap" id="embedWrap" hidden>
+            <div id="embedStage" class="embed-stage"></div>
+          </div>
+          <div class="video-stage-hint" id="videoStageHint" hidden>
+            <span class="video-hint-icon"><svg class="icon"><use href="#i-video"></use></svg></span>
+            <div><strong>Bài này có hình ảnh</strong><small>Mở chế độ điện ảnh để xem video</small></div>
+            <button class="ghost-chip" data-action="openCinema">Mở</button>
+          </div>
+          <button class="stage-expand icon-btn icon-btn--small" data-action="openCinema" data-tooltip="Mở rộng" aria-label="Mở rộng chế độ đang phát"><svg class="icon"><use href="#i-expand"></use></svg></button>
+          <span class="stage-source-badge" id="stageSourceBadge">SONORA</span>
+        </div>
+
+        <div class="now-track-meta">
+          <div class="now-title-row">
+            <h2 id="nowTitle">Chọn một bài hát</h2>
+            <button class="icon-btn heart-button" id="nowLikeBtn" data-action="toggleNowLike" aria-label="Thích bài hát">
+              <svg class="icon"><use href="#i-heart"></use></svg>
+            </button>
+          </div>
+          <p class="now-artist" id="nowArtist">SONORA đang chờ bạn</p>
+          <div class="now-info-row">
+            <span id="nowAlbum">Vũ trụ âm nhạc cá nhân</span>
+            <span class="dot-sep"></span>
+            <span id="nowYear">2026</span>
+            <span class="source-pill" id="nowSource">SONORA</span>
+          </div>
+          <div class="now-wave-row">
+            <span class="mini-eq" data-playing="false"><i></i><i></i><i></i><i></i></span>
+            <span id="nowStatus">Sẵn sàng phát</span>
+            <span class="grow"></span>
+            <span id="nowFormat">HI-RES</span>
+          </div>
+        </div>
+
+        <div class="now-quick-actions">
+          <button class="soft-action" data-action="addNowToPlaylist"><svg class="icon"><use href="#i-folder-plus"></use></svg><span>Lưu vào playlist</span></button>
+          <button class="icon-btn icon-btn--small" data-action="openNowMenu" data-tooltip="Tùy chọn khác" aria-label="Tùy chọn khác"><svg class="icon"><use href="#i-more"></use></svg></button>
+        </div>
+
+        <section class="lyrics-card" id="lyricsCard" aria-label="Lời bài hát">
+          <div class="lyrics-head">
+            <div>
+              <span class="eyebrow">Lời bài hát</span>
+              <span class="lyrics-source" id="lyricsSource">Chưa tải</span>
+            </div>
+            <div class="lyrics-actions">
+              <button class="icon-btn icon-btn--small" data-action="fetchLyrics" data-tooltip="Tìm lời tự động" aria-label="Tìm lời tự động"><svg class="icon"><use href="#i-search"></use></svg></button>
+              <button class="icon-btn icon-btn--small" data-action="lyricsRadar" data-tooltip="Dò & chọn lời phù hợp" aria-label="Dò lời bài hát"><svg class="icon"><use href="#i-compass"></use></svg></button>
+              <button class="icon-btn icon-btn--small" data-action="importLyrics" data-tooltip="Dán lời / LRC" aria-label="Dán lời bài hát"><svg class="icon"><use href="#i-plus"></use></svg></button>
+              <button class="icon-btn icon-btn--small" data-action="openKaraoke" data-tooltip="Lyrics Live (K)" aria-label="Mở Lyrics Live"><svg class="icon"><use href="#i-sparkles"></use></svg></button>
+              <button class="icon-btn icon-btn--small" data-action="openCinema" data-tooltip="Lời bài hát lớn" aria-label="Mở lời bài hát lớn"><svg class="icon"><use href="#i-expand"></use></svg></button>
+            </div>
+          </div>
+          <div class="lyrics-scroll" id="lyricsScroll">
+            <div class="lyrics-list" id="nowLyrics"></div>
+          </div>
+          <div class="lyrics-sync">
+            <span class="sync-label">Đồng bộ lời</span>
+            <button data-action="lyricsOffsetDown" aria-label="Lời chậm hơn nửa giây">−</button>
+            <span id="lyricsOffsetLabel">0.0s</span>
+            <button data-action="lyricsOffsetUp" aria-label="Lời nhanh hơn nửa giây">+</button>
+            <button class="sync-reset" data-action="lyricsOffsetReset">Đặt lại</button>
+            <span class="grow"></span>
+            <span class="sync-state" id="lyricsSyncState"><i></i> Sync</span>
+          </div>
+        </section>
+
+        <section class="upnext-card" aria-label="Phát tiếp theo">
+          <div class="section-mini-head">
+            <span class="eyebrow">Tiếp theo</span>
+            <button class="text-link smart-queue-link" data-action="smartQueue" data-tooltip="Thêm bài cùng gu vào hàng đợi"><svg class="icon"><use href="#i-sparkles"></use></svg> Gợi ý</button>
+            <button class="text-link" data-action="openQueue">Xem hàng đợi <svg class="icon"><use href="#i-chevron-right"></use></svg></button>
+          </div>
+          <div id="nowUpNext" class="upnext-list"></div>
+        </section>
+      </div>
+    </aside>
+
+    <footer class="player" id="player" aria-label="Trình phát nhạc">
+      <div class="player-left">
+        <button class="player-art" id="playerArtworkBtn" data-action="openNowPanel" aria-label="Mở bảng đang phát">
+          <img id="playerCover" alt="" draggable="false">
+          <span class="art-overlay"><svg class="icon"><use href="#i-expand"></use></svg></span>
+        </button>
+        <div class="player-meta">
+          <div class="player-title-line"><span class="playing-bars" data-playing="false"><i></i><i></i><i></i><i></i></span><strong id="playerTitle">Chọn một bài hát</strong></div>
+          <span id="playerArtist">SONORA</span>
+          <span class="player-source" id="playerSource">SONORA</span>
+        </div>
+        <button class="icon-btn heart-button player-like" id="playerLikeBtn" data-action="togglePlayerLike" aria-label="Thích bài hát">
+          <svg class="icon"><use href="#i-heart"></use></svg>
+        </button>
+      </div>
+
+      <div class="player-center">
+        <div class="transport">
+          <button class="transport-btn side" id="shuffleBtn" data-action="toggleShuffle" data-tooltip="Xáo bài (S)" aria-label="Bật hoặc tắt xáo bài"><svg class="icon"><use href="#i-shuffle"></use></svg></button>
+          <button class="transport-btn side" data-action="previous" data-tooltip="Bài trước" aria-label="Bài trước"><svg class="icon"><use href="#i-prev"></use></svg></button>
+          <button class="main-play" id="mainPlayBtn" data-action="togglePlay" aria-label="Phát hoặc tạm dừng">
+            <svg class="icon icon-play"><use href="#i-play"></use></svg>
+            <svg class="icon icon-pause"><use href="#i-pause"></use></svg>
+            <span class="play-ripple"></span>
+          </button>
+          <button class="transport-btn side" data-action="next" data-tooltip="Bài tiếp theo" aria-label="Bài tiếp theo"><svg class="icon"><use href="#i-next"></use></svg></button>
+          <button class="transport-btn side repeat-btn" id="repeatBtn" data-action="cycleRepeat" data-tooltip="Đổi chế độ lặp (R)" aria-label="Đổi chế độ lặp">
+            <svg class="icon"><use href="#i-repeat"></use></svg><span class="repeat-one-mark">1</span>
+          </button>
+        </div>
+        <div class="timeline-row">
+          <span class="time" id="currentTime">0:00</span>
+          <div class="timeline" id="timeline">
+            <div class="timeline-track"><span class="timeline-buffer" id="timelineBuffer"></span><span class="timeline-fill" id="timelineFill"></span></div>
+            <input class="timeline-range" id="seekBar" type="range" min="0" max="1000" value="0" step="1" aria-label="Tua bài hát">
+          </div>
+          <span class="time" id="durationTime">0:00</span>
+        </div>
+      </div>
+
+      <div class="player-right">
+        <div class="player-mini-eq" id="playerMiniEq" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+        <button class="icon-btn karaoke-quick-btn" data-action="openKaraoke" data-tooltip="Lyrics Live (K)" aria-label="Mở Lyrics Live"><svg class="icon"><use href="#i-sparkles"></use></svg></button>
+        <button class="icon-btn active-toggle" id="lyricsBtn" data-action="openLyricsView" data-tooltip="Lời bài hát (L)" aria-label="Mở lời bài hát"><svg class="icon"><use href="#i-lyrics"></use></svg></button>
+        <button class="icon-btn" data-action="openQueue" data-tooltip="Hàng đợi" aria-label="Mở hàng đợi"><svg class="icon"><use href="#i-queue"></use></svg></button>
+        <div class="volume-control">
+          <button class="icon-btn" id="muteBtn" data-action="toggleMute" data-tooltip="Tắt tiếng (M)" aria-label="Tắt hoặc bật tiếng"><svg class="icon"><use href="#i-volume"></use></svg></button>
+          <div class="volume-slider-wrap">
+            <div class="volume-track"><span id="volumeFill"></span></div>
+            <input id="volumeBar" type="range" min="0" max="100" value="72" step="1" aria-label="Âm lượng">
+          </div>
+        </div>
+        <button class="icon-btn expand-player" data-action="openCinema" data-tooltip="Chế độ điện ảnh (C)" aria-label="Mở chế độ điện ảnh"><svg class="icon"><use href="#i-expand"></use></svg></button>
+      </div>
+    </footer>
+  </div>
+
+  <div class="cinema" id="cinema" aria-hidden="true">
+    <div class="cinema-backdrop" id="cinemaBackdrop"></div>
+    <div class="cinema-vignette"></div>
+    <header class="cinema-topbar">
+      <div class="cinema-brand"><span class="brand-mark mini"><span class="brand-ring ring-one"></span><span class="brand-ring ring-two"></span><span class="brand-core"></span></span><span>SONORA <em>CINEMA</em></span></div>
+      <div class="cinema-top-actions">
+        <button class="glass-btn" data-action="toggleCinemaQueue"><svg class="icon"><use href="#i-queue"></use></svg>Hàng đợi</button>
+        <button class="glass-btn" data-action="closeCinema"><svg class="icon"><use href="#i-compress"></use></svg>Thoát</button>
+      </div>
+    </header>
+    <div class="cinema-layout">
+      <section class="cinema-visual-section">
+        <div class="cinema-orbit-aura"></div>
+        <canvas id="cinemaCanvas" class="cinema-canvas" aria-hidden="true"></canvas>
+        <div class="cinema-art-shell" id="cinemaArtShell">
+          <img id="cinemaCover" alt="">
+          <div class="cinema-art-vinyl"><span></span></div>
+          <div class="cinema-art-sheen"></div>
+        </div>
+        <div class="cinema-video-shell" id="cinemaVideoShell" hidden>
+          <video id="videoEngine" class="cinema-video" playsinline></video>
+          <div id="cinemaYoutube" class="cinema-youtube"></div>
+        </div>
+        <div class="cinema-embed-note" id="cinemaEmbedNote" hidden>
+          <span class="video-hint-icon"><svg class="icon"><use href="#i-cloud"></use></svg></span>
+          <div><strong>Bài hát phát trong khung nhúng chính thức</strong><small>Mở bảng bên phải để điều khiển trình phát của nền tảng.</small></div>
+        </div>
+        <button class="cinema-play-button" data-action="togglePlay" aria-label="Phát hoặc tạm dừng">
+          <svg class="icon icon-play"><use href="#i-play"></use></svg>
+          <svg class="icon icon-pause"><use href="#i-pause"></use></svg>
+        </button>
+        <div class="cinema-now-labels">
+          <span class="cinema-track-kicker" id="cinemaSource">SONORA ORIGINAL</span>
+          <span class="cinema-track-index" id="cinemaTrackIndex">01 / 06</span>
+        </div>
+      </section>
+      <section class="cinema-copy">
+        <div class="cinema-title-area">
+          <span class="eyebrow"><span class="live-dot"></span><span id="cinemaContext">Đang phát</span></span>
+          <h1 id="cinemaTitle">Chọn một bài hát</h1>
+          <p id="cinemaArtist">Vũ trụ âm nhạc của bạn</p>
+          <div class="cinema-meta-line">
+            <span id="cinemaAlbum">SONORA</span><span class="dot-sep"></span><span id="cinemaYear">2026</span>
+            <span class="cinema-source-chip" id="cinemaSourceChip">SONORA</span>
+          </div>
+        </div>
+        <div class="cinema-lyrics-head">
+          <span class="eyebrow">Lời bài hát</span>
+          <div class="cinema-lyrics-tools">
+            <button class="icon-btn icon-btn--small" data-action="fetchLyrics" data-tooltip="Tìm lời tự động" aria-label="Tìm lời"><svg class="icon"><use href="#i-search"></use></svg></button>
+            <button class="icon-btn icon-btn--small" data-action="lyricsRadar" data-tooltip="Dò & chọn lời" aria-label="Dò lời bài hát"><svg class="icon"><use href="#i-compass"></use></svg></button>
+            <button class="icon-btn icon-btn--small" data-action="openKaraoke" data-tooltip="Lyrics Live" aria-label="Mở Lyrics Live"><svg class="icon"><use href="#i-sparkles"></use></svg></button>
+            <button class="icon-btn icon-btn--small" data-action="lyricsOffsetDown" data-tooltip="Lời chậm hơn" aria-label="Lời chậm hơn"><svg class="icon"><use href="#i-minus"></use></svg></button>
+            <button class="icon-btn icon-btn--small" data-action="lyricsOffsetUp" data-tooltip="Lời nhanh hơn" aria-label="Lời nhanh hơn"><svg class="icon"><use href="#i-plus"></use></svg></button>
+          </div>
+        </div>
+        <div class="cinema-lyrics-scroll" id="cinemaLyricsScroll">
+          <div class="cinema-lyrics-list" id="cinemaLyrics"></div>
+        </div>
+        <div class="cinema-footer">
+          <div class="cinema-progress">
+            <span id="cinemaCurrent">0:00</span>
+            <div class="cinema-progress-track"><span id="cinemaProgressFill"></span></div>
+            <span id="cinemaDuration">0:00</span>
+          </div>
+          <div class="cinema-controls">
+            <button class="transport-btn side" data-action="toggleShuffle" aria-label="Xáo bài"><svg class="icon"><use href="#i-shuffle"></use></svg></button>
+            <button class="transport-btn side" data-action="previous" aria-label="Bài trước"><svg class="icon"><use href="#i-prev"></use></svg></button>
+            <button class="cinema-main-play" data-action="togglePlay" aria-label="Phát hoặc tạm dừng"><svg class="icon icon-play"><use href="#i-play"></use></svg><svg class="icon icon-pause"><use href="#i-pause"></use></svg></button>
+            <button class="transport-btn side" data-action="next" aria-label="Bài tiếp theo"><svg class="icon"><use href="#i-next"></use></svg></button>
+            <button class="transport-btn side repeat-btn" data-action="cycleRepeat" aria-label="Lặp lại"><svg class="icon"><use href="#i-repeat"></use></svg><span class="repeat-one-mark">1</span></button>
+          </div>
+          <div class="cinema-shortcut-hint"><kbd>Space</kbd> phát / dừng <span class="dot-sep"></span> <kbd>C</kbd> thoát</div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="karaoke-stage" id="karaokeStage" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Lyrics Live — lời bài hát sống động">
+    <div class="karaoke-ambient" id="karaokeAmbient"></div>
+    <div class="karaoke-aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="karaoke-grain" aria-hidden="true"></div>
+    <header class="karaoke-topbar">
+      <div class="karaoke-brand">
+        <span class="brand-mark mini"><span class="brand-ring ring-one"></span><span class="brand-ring ring-two"></span><span class="brand-core"></span></span>
+        <span>SONORA <em>LYRICS LIVE</em></span>
+      </div>
+      <div class="karaoke-recognition">
+        <span class="karaoke-signal" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+        <span class="karaoke-recognition-copy">
+          <span>Nhận diện lời</span>
+          <strong id="karaokeSource">Chưa tải</strong>
+        </span>
+        <span class="karaoke-sync-badge" id="karaokeSyncBadge" data-tone="idle">Chưa nhận diện</span>
+      </div>
+      <div class="karaoke-top-actions">
+        <button type="button" class="karaoke-tool" data-action="lyricsRadar"><svg class="icon"><use href="#i-compass"></use></svg><span>Dò lời</span></button>
+        <button type="button" class="karaoke-tool" data-action="fetchLyrics"><svg class="icon"><use href="#i-search"></use></svg><span>Tự động</span></button>
+        <button type="button" class="karaoke-tool" data-action="shareCard"><svg class="icon"><use href="#i-share"></use></svg><span>Chia sẻ</span></button>
+        <button type="button" class="karaoke-icon-btn" id="karaokeFullscreenBtn" data-action="toggleKaraokeFullscreen" aria-label="Bật toàn màn hình" data-tooltip="Toàn màn hình"><svg class="icon"><use href="#i-expand"></use></svg></button>
+        <button type="button" class="karaoke-icon-btn" data-action="closeKaraoke" aria-label="Đóng Lyrics Live"><svg class="icon"><use href="#i-x"></use></svg></button>
+      </div>
+    </header>
+
+    <div class="karaoke-layout">
+      <aside class="karaoke-side">
+        <div class="karaoke-art-frame" id="karaokeArtFrame">
+          <span class="karaoke-art-glow"></span>
+          <span class="karaoke-art-ring"></span>
+          <img id="karaokeCover" alt="">
+          <span class="karaoke-art-sheen"></span>
+        </div>
+        <div class="karaoke-track-copy">
+          <span class="eyebrow" id="karaokeContext">Đang phát</span>
+          <h1 id="karaokeTitle">Chọn một bài hát</h1>
+          <p id="karaokeArtist">Vũ trụ âm nhạc của bạn</p>
+          <div class="karaoke-meta-line">
+            <span id="karaokeAlbum">SONORA</span><span class="dot-sep"></span><span id="karaokeYear">2026</span>
+          </div>
+        </div>
+        <div class="karaoke-controls">
+          <button type="button" class="transport-btn side" data-action="toggleShuffle" aria-label="Xáo bài"><svg class="icon"><use href="#i-shuffle"></use></svg></button>
+          <button type="button" class="transport-btn side" data-action="previous" aria-label="Bài trước"><svg class="icon"><use href="#i-prev"></use></svg></button>
+          <button type="button" class="karaoke-main-play" data-action="togglePlay" aria-label="Phát hoặc tạm dừng"><svg class="icon icon-play"><use href="#i-play"></use></svg><svg class="icon icon-pause"><use href="#i-pause"></use></svg></button>
+          <button type="button" class="transport-btn side" data-action="next" aria-label="Bài tiếp theo"><svg class="icon"><use href="#i-next"></use></svg></button>
+          <button type="button" class="transport-btn side repeat-btn" data-action="cycleRepeat" aria-label="Lặp lại"><svg class="icon"><use href="#i-repeat"></use></svg><span class="repeat-one-mark">1</span></button>
+        </div>
+      </aside>
+
+      <section class="karaoke-story" aria-label="Lời bài hát">
+        <div class="karaoke-story-head">
+          <span class="eyebrow"><span class="karaoke-live-dot"></span>Lời bài hát đang chạy</span>
+          <span id="karaokeLineCount">Chưa có lời</span>
+        </div>
+        <div class="karaoke-lyrics-scroll" id="karaokeLyricsScroll">
+          <div class="karaoke-lyrics-list" id="karaokeLyrics"></div>
+        </div>
+        <footer class="karaoke-footer">
+          <div class="karaoke-progress">
+            <div class="karaoke-progress-track"><span id="karaokeProgressFill"></span><input id="karaokeSeek" type="range" min="0" max="1000" value="0" step="1" aria-label="Tua bài hát trong Lyrics Live"></div>
+            <div class="karaoke-time-row"><span id="karaokeCurrent">0:00</span><span id="karaokeDuration">0:00</span></div>
+          </div>
+          <div class="karaoke-sync-row">
+            <span>Đồng bộ lời</span>
+            <button data-action="lyricsOffsetDown" aria-label="Lời chậm hơn nửa giây">−0.5s</button>
+            <span id="karaokeOffsetLabel">0.0s</span>
+            <button data-action="lyricsOffsetUp" aria-label="Lời nhanh hơn nửa giây">+0.5s</button>
+            <button class="karaoke-reset" data-action="lyricsOffsetReset">Đặt lại</button>
+            <span class="grow"></span>
+            <span class="karaoke-hint"><kbd>K</kbd> đóng <span class="dot-sep"></span> <kbd>Space</kbd> phát / dừng</span>
+          </div>
+        </footer>
+      </section>
+    </div>
+  </div>
+
+  <div class="side-drawer" id="queueDrawer" aria-hidden="true" role="dialog" aria-label="Hàng đợi phát nhạc">
+    <div class="drawer-head">
+      <div><span class="eyebrow">Phiên nghe</span><h2>Hàng đợi</h2></div>
+      <button class="icon-btn" data-action="closeQueue" aria-label="Đóng hàng đợi"><svg class="icon"><use href="#i-x"></use></svg></button>
+    </div>
+    <div class="drawer-tabs">
+      <button class="drawer-tab is-active" data-queue-tab="next">Tiếp theo</button>
+      <button class="drawer-tab" data-queue-tab="history">Đã phát</button>
+      <span class="grow"></span>
+      <button class="text-link" data-action="clearQueue">Xóa hàng đợi</button>
+    </div>
+    <div class="drawer-body" id="queueBody"></div>
+    <div class="drawer-foot">
+      <span id="queueSummary">0 bài hát</span>
+      <button class="ghost-chip" data-action="toggleShuffle"><svg class="icon"><use href="#i-shuffle"></use></svg><span id="queueShuffleLabel">Xáo bài</span></button>
+    </div>
+  </div>
+  <div class="drawer-backdrop" id="queueBackdrop" data-action="closeQueue"></div>
+
+  <div class="command-layer" id="commandPalette" aria-hidden="true">
+    <div class="command-veil" data-action="closeSearch"></div>
+    <div class="command-panel" role="dialog" aria-modal="true" aria-label="Tìm kiếm nhanh">
+      <div class="command-input-wrap">
+        <svg class="icon"><use href="#i-search"></use></svg>
+        <input type="text" id="commandInput" placeholder="Tìm bài hát, nghệ sĩ hoặc gõ một hành động…" autocomplete="off" spellcheck="false" aria-label="Tìm kiếm">
+        <kbd>ESC</kbd>
+      </div>
+      <div class="command-body" id="commandResults"></div>
+      <div class="command-footer">
+        <span><kbd>↑</kbd><kbd>↓</kbd> di chuyển</span>
+        <span><kbd>↵</kbd> chọn</span>
+        <span class="command-brand">sonora.command</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-layer" id="modalLayer" aria-hidden="true">
+    <div class="modal-veil" data-action="closeModal"></div>
+    <div class="modal-card" id="modalCard" role="dialog" aria-modal="true" aria-labelledby="modalTitle"></div>
+  </div>
+
+  <div class="context-menu" id="contextMenu" hidden></div>
+  <div class="toast-host" id="toastHost" aria-live="polite"></div>
+  <div class="drop-overlay" id="dropOverlay" aria-hidden="true">
+    <div class="drop-card">
+      <span class="drop-orbit"><svg class="icon"><use href="#i-upload"></use></svg></span>
+      <strong>Thả nhạc vào vũ trụ</strong>
+      <p>MP3, MP4, WAV hoặc một liên kết bất kỳ.</p>
+    </div>
+  </div>
+
+  <audio id="engineAudio" preload="metadata" aria-hidden="true"></audio>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
